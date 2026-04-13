@@ -1,12 +1,16 @@
 {
   "name": "express",
   "type": "module",
+  "scripts": {
+    "client": "tsx client.ts"
+  },
   "dependencies": {
     "express": "5.1.0"
   },
   "devDependencies": {
-    "@types/node": "20.11.17",
     "@types/express": "5.0.0",
+    "@types/node": "20.11.17",
+    "tsx": "^4.21.0",
     "typescript": "5.8.3"
   }
 }
