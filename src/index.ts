@@ -3,7 +3,7 @@ import express from 'express'
 const app = express()
 
 app.get('/', (_req, res) => {
-  res.send('Hello Express!')
+  res.send(`Payment will be on ${process.env.NETWORK}`)
 })
 
 app.get('/api/users/:id', (_req, res) => {
