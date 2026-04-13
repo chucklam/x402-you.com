@@ -40,6 +40,11 @@ const paymentRequired = httpClient.getPaymentRequiredResponse((name) =>
   firstTry.headers.get(name),
 )
 // console.log('Payment required response:', JSON.stringify(paymentRequired, null, 2))
+const amount = paymentRequired.accepts.find((a) => a.scheme === 'exact')?.amount
+if (amount) {
+  const cost = Number(amount) / 1e7 // USDC on Stellar has 7 decimals
+  console.log(`Cost of the resource in USDC: ${cost}`)
+}
 
 
 // Create payment payload using the payment instructions.
