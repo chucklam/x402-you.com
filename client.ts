@@ -2,6 +2,7 @@ import { Transaction, TransactionBuilder } from '@stellar/stellar-sdk'
 import { x402Client, x402HTTPClient } from '@x402/fetch'
 import { createEd25519Signer, getNetworkPassphrase } from '@x402/stellar'
 import { ExactStellarScheme } from '@x402/stellar/exact/client'
+import pc from 'picocolors'
 
 import 'dotenv/config'
 const { NETWORK, RESOURCE_SERVER_URL, STELLAR_RPC_URL, STELLAR_PRIVATE_KEY } = process.env
@@ -43,7 +44,7 @@ const paymentRequired = httpClient.getPaymentRequiredResponse((name) =>
 const amount = paymentRequired.accepts.find((a) => a.scheme === 'exact')?.amount
 if (amount) {
   const cost = Number(amount) / 1e7 // USDC on Stellar has 7 decimals
-  console.log(`Cost of the resource in USDC: ${cost}`)
+  console.log(pc.green(`Cost of the answer in USDC: ${cost}\n`))
 }
 
 
