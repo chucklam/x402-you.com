@@ -81,11 +81,11 @@ const paidResponse = await fetch(url, {
   headers: paymentHeaders,
 })
 
+// console.log(`Access Granted! ${paidResponse.status}`)
 // const paymentResponse = httpClient.getPaymentSettleResponse((name) =>
 //   paidResponse.headers.get(name),
 // )
 // console.log('Settlement response:', paymentResponse)
 
-console.log(`Access Granted! ${paidResponse.status}`)
-const json = await paidResponse.json()
-console.log('Response from resource server:', json)
+const { result } = await paidResponse.json()
+console.log(result)
